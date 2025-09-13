@@ -2,29 +2,119 @@
 <html>
 <head>
     <style>
+        body{
+            background-color: #d14836;
+            padding: 5px;
+        }
         .border_1{
             width : 99%;
             height: 244.5px;
-            padding: 5px;
             background-color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .main-content {
+            width: 88%;
+            padding:10px;
+        }
+        .right-sidebar {
+            width: 12%;
         }
         .border_2{
             width : 99%;
-            height: 100px;
-            padding: 5px;
+            height: 120px;
             background-color: #f6dad7;
+            color: #d14836;
+        }
+        a {
+            text-decoration: none;
+            color: #d14836;
+        }
+        h1, h2, h3, p, div {
+            margin: 0;
+            padding: 0;
+        }
+        .selected-bar {
+            border : 1px solid #d14836;padding:5px;
+            border-radius: 40px;
+            background-color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .unselected-bar a {
+            color: white;
+        }
+
+        .unselected-bar {
+            padding:5px;
+            border-radius: 40px;
+            background-color: #d14836;
+            margin-bottom: 10px;
+            text-align: center;
         }
     </style>
 </head>
-<body style="background-color: #d14836; padding: 10px;">
+<body>
     <div style="font-size: 50px; font-weight: bold; color: white;">Welcome to Uikyeom Hwang's Homepage (22200812)</div>
     <div style="font-size: 30px; color: white;">Use the menu to select different Stylesheets</div>
     </br></br>
     <div class="border_1">
-        <h1 style="color: #d14836; font-weight: bold;">Same Page Different Stylesheets</h1>
+        <div class="container">
+            <div class="main-content">
+                <h1 style="color: #d14836; font-weight: bold;">Same Page Different Stylesheets</h1>
+                <div style="font-size: smaller;">
+                    This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+                    </br>
+                    <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style1.html">Stylesheet1,</a>
+                    <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet2,</a>
+                    <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet3,</a>
+                    <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet4.</a>
+                </div>
+                </br>
+                <h2 style="color: #d14836; font-weight: bold;">No Styles</h2>
+                <div style="font-size: smaller;">
+                    This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+                    </br>
+                    <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\index.html">No Stylesheet</a>
+                </div>
+
+            </div>
+            <div class="right-sidebar">
+                <div style="margin-top: 15px;"></div>
+                <div style="margin-right: 5px;">
+                    <div class="unselected-bar">
+                        <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style1.html">Stylesheet 1</a>
+                    </div>
+                    <div class="selected-bar">
+                        <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet 2</a>
+                    </div>
+                    <div class="unselected-bar">
+                        <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet 3</a>
+                    </div>
+                    <div class="unselected-bar">
+                        <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\Style2.html">Stylesheet 4</a>
+                    </div>
+                    <div class="unselected-bar">
+                        <a href="C:\Users\huiky\Documents\Coding\OS Studio\Week2\index.html">No Stylesheet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <div class="border_2">
-
+        <div style="padding: 10px;">
+            <div style="font-weight: bold; margin-top: 5px;">Side-Bar</div>
+        </br>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            </div>
+    </div>
+    <div style="font-size: x-small; color: white;text-align: center;">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
     </div>
 </body>
