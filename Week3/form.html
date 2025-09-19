@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Studio Dynamic Web Page</title>
+    <style>
+        button[type=button1]{
+            border: 1px blue;
+            border-radius: 1px;
+            background-color: blue;
+            color: white;
+            width: 4%;
+        }
+        button[type=button2]{
+            border: 1px rgb(79, 121, 15);
+            border-radius: 1px;
+            background-color: rgb(79, 121, 15);
+            color: white;
+            width: 4%;
+        }
+        #input_list:hover {
+            background-color: #d3d3d3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Web page</h1>
+    <input type="text" name="list" id="input_list" onmouseover="this.style.backgroundColor='#d3d3d3'" onmouseout="this.style.backgroundColor='white'">
+    <button onclick="add()" type="button1">추가</button>
+    <button onclick="remove()" type="button2">삭제</button>
+    <ul id="my_list"></ul>
+</body>
+<script> 
+    function add() {
+        let listeditems = document.getElementById("input_list").value;
+        let itemsplit = listeditems.split(','); //,가 있으면 나누게끔 하여, itemsplit이라는 배열 변수 안에 나눠진 item들을 채운다.
+        let list = document.getElementById("my_list");
+        for (let i = 0; i < itemsplit.length; i++) {
+            let itemlist = document.createElement("li"); //itemlist라는 이름의 변수로 <li>와 </li> 사이에 공간 생성
+            itemlist.innerHTML = itemsplit[i]; //<li>와 </li> 사이에 배열 itemsplit에 i번째 값을 넣는다.
+            list.appendChild(itemlist); //itemlist 변수를 list에 자식으로 추가하여, <body>, 즉 웹페이지에 보일 수 있게끔 만들어준다.
+        }
+        document.getElementById("input_list").value="";
+    }
+    function remove() {
+        let list = document.getElementById("my_list");
+        list.innerHTML = "";
+    }
+</script>
+</html>
