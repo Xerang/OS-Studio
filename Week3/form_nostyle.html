@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout form practice</title>
+    <!-- *양 옆 마진과 좌우로 나뉘는 칸을 구현하기 위해, 몇개의 css를 적용했고, html 관련 코드에 영향을 주지는 않았습니다. -->
+    <style>
+        body{
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .left-sidebar {
+            width: 65%;
+        }
+        .right-sidebar {
+            width: 30%;
+        }
+        .columns-container {
+            border-bottom: 1px solid #d3d3d3;
+            padding-bottom: 20px;
+        }
+        .cart_border{
+            height : 270px;
+            width : 200px;
+            border : 1px solid #d3d3d3;padding:30px;
+            border-radius: 10px;
+        }
+    </style>
+    <!-- *양 옆 마진과 좌우로 나뉘는 칸을 구현하기 위해, 몇개의 css를 적용했고, html 관련 코드에 영향을 주지는 않았습니다. -->
+</head>
+<body>
+    <div style="text-align: center;"><br/>
+        <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" style="width: 70px; height: 55px"/>
+        <h1 style="font-weight: 400;">Checkout form</h1>
+        <h3 style="font-weight: 250;">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</h3>
+    </div><br/><br/>
+    <form action="form_ok.html" method="post">
+        <div class="container">
+            <div class="left-sidebar">
+                <h2 style="font-weight: 350;">Billing address</h2>
+                <div style="display: flex; gap: 56px">
+                    <label for="input_first_name">First name </label> <br/>
+                    <label for="input_last_name">Last name </label> <br/>
+                </div>
+                <div style="display: flex; gap: 10px">
+                    <input type="text" name="first_name" id="input_first_name" required/><br/>
+                    <input type="text" name="last_name" id="input_last_name" required/><br/>
+                </div>
+                <label for="input_username">Username </label> <br/>
+                <input type="text" name="username" id="input_username" placeholder="Username" required/><br/>
+                <label for="input_email">Email (Optional)</label> <br/>
+                <input type="text" name="email" id="input_email" placeholder="you@example.com"/><br/>
+                <label for="input_address">Address </label> <br/>
+                <input type="text" name="address" id="input_address" placeholder="1234 Main St" required/><br/>
+                <label for="input_address_2">Address 2 (Optional)</label> <br/>
+                <input type="text" name="address_2" id="input_address_2" placeholder="Apartment or suite"/><br/>
+                <div style="display: flex; gap: 80px">
+                    <label for="input_country">Country </label> <br/>
+                    <label for="input_state" style="margin-left: 32px;">State </label> <br/>
+                    <label for="input_zip" style="margin-left: 5px;">Zip </label> <br/>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <select type="file" id="country" name="input_country" style="width: 900px;">
+                        <option selected>Choose...</option>
+                        <option>United States</option>
+                    </select><br/>
+                    <select type="file" id="state" name="input_state" style="width: 700px;">
+                        <option selected style="width: 100%;">Choose...</option>
+                        <option>California</option>
+                    </select><br/>
+                    <input type="text" name="zip" id="input_zip" style="width: 130px;" required/><br/>
+                </div>
+                <div class="columns-container"></div><br/>
+                <div>
+                    <input type="checkbox" id="input_checkbox1" name="checkbox" />
+                    <label for="input_checkbox1">Shipping address is the same as my billing address</label><br/>
+                    <input type="checkbox" id="input_checkbox2" name="checkbox" />
+                    <label for="input_checkbox2">Save this information for next time</label>
+                </div>
+                <div class="columns-container"></div>
+                <h2 style="font-weight: 350;">Payment</h2>
+                <div>
+                    <input type="radio" id="input_radio1" name="input_radio" />
+                    <label for="input_radio1">Credit card</label><br/>
+                    <input type="radio" id="input_radio2" name="input_radio" />
+                    <label for="input_radio2">Debit card</label><br/>
+                    <input type="radio" id="input_radio3" name="input_radio" />
+                    <label for="input_radio3">Paypal</label><br/>
+                </div><br/>
+                <div style="display: flex; gap: 80px;">
+                    <label for="input_name_on_card">Name on card </label>
+                    <label for="input_credit_card_number">Credit card number </label>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <input type="text" name="name_on_card" id="input_name_on_card" required/>
+                    <input type="number" name="credit_card_number" id="input_credit_card_number" required/>
+                </div>
+                <div style="color: #6c757d; font-size: small;">Full name as displayed on card</div><br/>
+                <div style="display: flex; gap: 60px;">
+                    <label for="input_expiration">Expiration </label> <br/>
+                    <label for="input_cvv">CVV </label> <br/>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <input type="number1" name="expiration" id="input_expiration" required/><br/>
+                    <input type="number1" name="cvv" id="input_cvv" required/><br/>
+                </div>
+                <div class="columns-container"></div><br/>
+                <input type="submit" value="Continue to checkout" />
+            </div>
+            <div class="right-sidebar">
+                <h2 style="font-weight: 350; color: #0d6efd;">Information</h2>
+                <div class="cart_border">
+                    <div style="margin-left: 10px;">
+                        <label for="input_date"> Preferred delivery date : </label><br/>
+                        <input type="date" id="input_date" name="date" />
+                        <div class="columns-container"></div>
+                        <label for="user-comment">Requests : </label><br/>
+                        <textarea id="user-comment"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/><br/>
+        <div style="text-align: center; color: #6c757d">
+            © 2017–2022 Company Name
+        </div><br/><br/>
+    </form>
+</body>
+</html>
