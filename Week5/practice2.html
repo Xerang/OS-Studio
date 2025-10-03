@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+    .div_panel{
+        height: 600px;
+        font-size: 500px;
+        text-align: center;
+    }
+    .div_panel.div_panel_o{
+        background-color: aquamarine;
+    }
+    .div_panel.div_panel_x{
+        background-color: palevioletred;
+    }
+    .div_player{
+        background-color: yellow;
+        text-align: center;
+        position: fixed;
+        font-size: 15px;
+        border-radius: 50%;
+        padding-top: 13px;
+        width: 50px;
+        height: 50px;
+        left: calc(100%-25px);
+        top: 50px;
+    }
+    .hide{
+        display: none;
+    }
+</style>
+<body>
+    id : <input id="input_id"/>
+    std_num : <input id="input_stdnum"/> <button onclick="listener_register()">IN</button>
+    <div id="div_player_zone"></div>
+    <div class="div_player hide" id="div_player_me">
+        player<br/>#
+        <span id="span_player_me_stdnum">-</span>
+    </div>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;">
+                <div class="div_panel div_panel_o" onclick="listener_panel_clicked('o')">
+                    O
+                </div>
+            </td>
+            <td style="width: 50%;">
+                <div class="div_panel div_panel_x" onclick="listener_panel_clicked('x')">
+                    X   
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        $(function(){
+
+        });
+        let registered = false;
+        function listener_player_add(){
+            $(document).append(
+                <div class="div_player hide" id="div_player_${id}">
+                    player<br/>#
+                    <span id="span_player_${id}_stdnum">-</span>
+                </div>
+            );
+        }
+        function listener_register(){
+            $("#div_player_me").removeClass("hide");
+            let input_stdnum = $("#input_stdnum").val();
+            $("#span_player_me_stdnum").text();
+            registered = true;
+        }
+        function listener_panel_clicked(obj_way){
+            alert(obj_way);
+            let temp_left = "25%";
+            if(obj_way === "o"){
+                $("#div_player_me").css("left", "calc(25%-25px)");
+            }
+            else{
+                $("#div_player_me").css("left", "calc(75%-25px)");
+            }
+        }
+    </script>
+</body>
+</html>

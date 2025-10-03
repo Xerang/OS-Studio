@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugang.com</title>
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>
+    <header>
+        <h1>과목 상세</h1>
+    </header>
+    <div class="main-container-2">
+        <h2>OS Studio</h2> 
+        <ul>
+            <li><strong>교수명:</strong> Saejin Kim</li>
+            <li><strong>평점:</strong> 4.0</li>
+            <li><strong>수강날짜:</strong> 2025-09-01</li>
+        </ul>
+    </div><br/>
+    <div style="margin-left: 350px; font-weight: bold;">
+        <a href="edit.html" class="button-area">[수정]</a>    
+        <button type="button" class="button danger" onclick="confirmDelete()">[삭제]</button>
+        <a href="index.html" class="button-area">[목록]</a>
+    </div>
+</body>
+<script>
+    function confirmDelete(){
+        if (confirm("해당 수강 과목을 삭제할까요?")) {
+                // '확인'을 누르면 실행될 코드
+            alert("삭제되었습니다."); 
+                // 실제로는 삭제 후 목록 페이지로 이동합니다.
+            window.location.href = 'index.html';
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugang.com</title>
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>    
+    <header>
+        <h1>새로운 수강 과목 추가</h1>
+    </header>
+    <div class="main-container-1">
+        <form name="addForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="sugangTitle">수강한 과목 이름</label>
+                <input type="text" id="input_sugangTitle" name="sugangTitle">
+            </div>
+            <div class="form-group">
+                <label for="professor">교수명</label>
+                <input type="text" id="input_professor" name="professor">
+            </div>
+            <div class="form-group">
+                <label for="points">학점</label>
+                <input type="number" id="input_points" name="points">
+            </div>
+            <div class="form-group">
+                <label for="date">수강 날짜</label>
+                <input type="text" id="input_date" name="date" placeholder="20XX-XX-XX">
+            </div>
+            <div style="text-align: left;">
+                <button type="submit">확인</button>
+                <div class="button-area">
+                    <a href="index.html" class="button">취소</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            title = document.getElementById("input_sugangTitle").value;
+            if (title == "") {
+                alert("과목명을 입력하세요.");
+                return false;
+            }
+            name = document.getElementById("input_professor").value;
+            if (name == "") {
+                alert("교수님의 성함을 입력하세요.");
+                return false;
+            }
+            point = document.getElementById("input_points").value;
+            if (point == "") {
+                alert("학점을 입력하세요.");
+                return false;
+            }
+            date = document.getElementById("input_date").value;
+            if (date == "") {
+                alert("오늘의 날짜를 입력하세요.");
+                return false;
+            }
+            alert("게시물이 추가됩니다.");
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -3,19 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Onload Example</title>
+    <title>form_style.html</title>
 </head>
+
+<!-- 스타일 -->
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #212529;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px 20px;
+        max-width: 960px;
+    }
+
+    label {
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    label .optional {
+        color: #6C757D;
+        font-weight: 400;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header > h2 {
+        font-weight: 500;
+        font-size: 32px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .header > a {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 160px 0 160px;
+        margin-bottom: 90px;
+        line-height: 1.6;
+        color: #6C757D;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        /* 윗쪽에서 시작 */
+        align-items: flex-start;
+        justify-content: center;
+        gap: 60px;
+        padding: 0 20px;
+    }
+
+    /* -- 여기서부터 Billing  파트 -------------------------------------------------------------------- */
+    .Billing {
+        /* billing : sidebar = 2 : 1 */
+        flex: 1; 
+    }
+
+    .Billing > h3 {
+        font-size:  24px;
+        font-weight: 500;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .form-row .form-group {
+        flex: 1;
+    }
+    
+    input[type="text"], select {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+    }
+
+    input[type="text"]:focus, select:focus {
+        color: #6C757D;
+    }
+
+    /* 공통 그룹 and flex 부여*/
+    .input-group {
+        display: flex;
+    }
+
+    .input-group-text {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        background-color: #e9ecef;
+
+        border: 1px solid #ced4da;
+        border-right: none;
+        border-radius: 6px 0 0 6px;
+    }
+
+    .input-group-input {
+        border-radius: 0 6px 6px 0;
+        width: 100%;
+    }
+
+    /* 경계선 */
+    .line_divide {
+        /* border: 1px solid black; */
+        background-color: rgba(111, 106, 106, 0.397);
+        width: 600px;
+        height: 0.5px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-check {
+        padding-left: 0;
+        margin-bottom: 3px;
+    }
+
+    .form-check > input {
+        margin-right: 10px;
+    }
+
+    .form-check > label {
+        display: inline;
+        font-weight: 400;
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #6C757D;
+        margin-top: 5px;
+    }
+
+    .button {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 500;
+        font-size: 18px;
+        background-color: #0D6EFD;
+        border-radius: 8px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #0a53be;
+    }
+
+    /* -- 여기서 부터 사이드 바--------------------------------------------------------------------------------------------------- */
+    .sidebar {
+        width: 350px;
+        margin-left: 30px;
+    }
+
+    .sidebar_header {
+        display: flex;
+        flex-direction: row;
+        gap: 140px;
+    }
+
+    .your_cart {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 5px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+    }
+
+    .your_cart > li {
+        padding-left:20px;
+        padding-top: 5px;
+    }
+
+    .your_cart > li:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 18px;
+    }
+
+    .Promote {
+        padding: 7px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-top: 15px;
+        width: 265px;
+    }
+
+    .Promote .promote-input {
+        display: flex;
+    }
+
+    /* 아니 하 진짜 왜 안되는 거임...... */
+    .promote-input > input {
+        width: 190px;
+        height: 39px;
+        font-size: 15px;
+        border-radius: 6px 0 0 6px;
+        padding: 0 10px;
+        font-weight: 300;
+
+        border: 1px solid #ced4da;
+        /* 오른쪽 테두리 제거 */
+        border-right: none;
+
+        outline: none;
+        box-sizing: border-box;
+    }
+    
+    .promote-input > a {
+        display: flex;
+        align-items: center;
+
+        padding: 0px 13px 0 11px;
+        border: 1px solid #6C757D;
+        border-radius: 0 6px 6px 0;
+        height: 38px;
+        text-align: center;
+        background-color: #6C757D;
+        color: white;
+        width: 50px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
+</style>
+
+<!-- 내용 -->
 <body>
 
-    <h1>페이지 로딩 중...</h1>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70" style="padding-top: 25px;">
+            <h2>Checkout form</h2>
+            <a> Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
+        </div>
+        <!-- 메인 (1. 결제칸 2. 사이드 바) -->
+        <div class="main">
+            <!-- 결제 파트 -->
+            <div class="Billing">
+                <h3>Billing address</h3>
+                <form>
+                    <!-- 이름 -->
+                    <div class="form-row" style="gap: 40px;">
+                        <div class="form-group">
+                            <label for="fname">First name</label>
+                            <input type="text" size="16" name="fname" id="fname" pattern="\d*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last name</label>
+                            <input type="text" size="16" name="lname" id="lname" pattern="\d*" required>
+                        </div>
+                    </div>
 
-    <script>
-        // 페이지의 모든 콘텐츠(HTML, 이미지, CSS 등)가 로딩되면 이 함수가 실행됩니다.
-        window.onload = function() {
-            alert("페이지가 완전히 로드되었습니다!");
-            document.querySelector('h1').textContent = "페이지 로드 완료!";
-        };
-    </script>
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="username">Username</label></br>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <!-- 길이가 다른 끝과 안맞음... 왜? -->
+                            <div class="input-group-input">
+                                <input type="text" name="username" id="username" placeholder="Username" required>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- 이메일 -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <!-- 주소 1 -->
+                    <div class="form-group">
+                        <label for="address1">Address</label></br>
+                        <input type="text" name="address1" id="address1" placeholder="1234 Main St" required>
+
+                    </div>
+
+                    <!-- 주소 2 -->
+                    <div class="form-group">
+                        <label for="address2">Address 2</label>
+                        <label for="address2" style="font-weight: 300;">(Optional)</label></br>
+                        <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" required >
+                    </div>
+                    
+                    <!-- 국가 / 주 / zip -->
+                    
+                    <div class="form-row">
+                        <!-- 국가 -->
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select name="country">
+                                <option value="1">Choose...</option>
+                                <option value="2">United States</option>
+                            </select>
+                        </div>
+
+                        <!-- 주 -->
+                        <div class="form-group">
+                            <label for="state">State</label>
+                                <select name="state">
+                                    <option value="1">Choose...</option>
+                                    <option value="2">California</option>
+                                </select>
+                        </div>
+                        
+                        <!-- zip -->
+                        <div class="form-group">
+                            <label for="zip">Zip</label>
+                            <input type="text" name="zip" id="zip">
+                        </div>
+                    </div>
+
+                    <!-- 생년 월일 -->
+                    <div class="form-group">
+                        <label for="birthdate">Birth Date</label><br>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+
+                    <!-- 경계선 -->
+                    <div class="line_divide"></div>
+
+                    <!-- 체크 박스 2개 -->
+                    <div class="form-check">
+                        <input type="checkbox" id="checkbox_1" name="checkbox_1">
+                        <label for="checkbox_1">Shipping address is the same as my billing address</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="checkbox_2" name="checkbox_2">        
+                        <label for="checkbox_2">Save this information for next time</label>                    
+                    </div>
+                    
+                    <!-- 경계선 -->
+                    <div class="line_divide"></div>
+                    
+                    <!-- Payment -->
+                    <h3 style="font-size: 22px; margin-bottom: 20px;">Payment</h3>
+                    
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="radio" id="credit" name="card" value="C_card">
+                            <label for="credit">Credit card</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="radio" id="debit" name="card" value="C_card">
+                            <label for="debit">Debit card</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" id="paypal" name="card" value="C_card">
+                            <label for="paypal">Paypal</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-row" style="margin-top: 25px; gap: 40px;">
+                        <!-- Name on card -->
+                        <div class="form-group">
+                            <label for="cardName">Name on card</label>
+                            <input type="text" id="cardName" required>
+                            <p class="form-text">Full name as displayed on card</p>
+                        </div>
+                        <!-- Credit card  number -->
+                        <div class="form-group">
+                            <label for="cardNumber">Credit card number</label>
+                            <input type="text" id="cardNumber" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row" style="gap: 40px;">
+                        <!-- Expiration -->
+                        <div class="form-group">
+                            <label for="expiration">Expiration</label>
+                            <input type="text" id="expiration" name="expiration" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CVV">CVV</label>
+                            <input type="text" id="CVV" name="CVV" required>
+                        </div>
+                    </div>
+                    
+                    <!-- 요청 사항 -->
+                    <div class="form-group">
+                        <label for="request_term">Request Term</label><br><br>
+                        <textarea id="request_term" name="request_term" rows="4" cols="100"></textarea>
+                    </div>
+                    
+                    <!-- 경계선 -->
+                    <div class="line_divide"></div>
+
+                    <!-- checkout 버튼 -->
+                    <div class="button">Continue to checkout</div>
+                </form>
+                
+            </div>
+    
+            <!-- 사이드 바 -->
+            <div class="sidebar">
+                <div class="sidebar_header">
+                    <div style="font-size: 25px; color: #0D6EFD; text-align: left;">Your cart</div>
+                    <div style="font-size: 18px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 25px; width: 35px; align-items: center; padding: 3px 0 0 0; font-weight: 700; height: 28px;">3</div>
+                </div>
+                
+                <!-- 리스트 -->
+                <ul class="your_cart">
+                    <li>
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400;">Product Name</span>
+                            <span style="color:rgb(111, 106, 106) ;">$12</span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                    </li>
+
+                    <li>
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400;">Second Product</span>
+                            <span style="color:rgb(111, 106, 106) ;">$8</span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                    </li>
+
+                    <li>
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400;">Third item</span>
+                            <span style="color:rgb(111, 106, 106);">$5</span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                    </li>
+
+                    <li style="background-color: #e9ecef;">
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400; color:#198754 ;">Promo code</span>
+                            <span style="color:#198754 ;">-$5</span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color:#198754; margin-top:0 ;">EXAMPLECODE</p>
+                    </li>
+                    
+                    <li style="margin-bottom: 10px;">
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400;">Total (USD)</span>
+                            <span style="color:black; font-weight: 600;">$20</span>
+                        </div>
+                        
+                    </li>
+                </ul>
+
+                <!-- Promo code -->
+                <div class="Promote">
+                    <div class="promote-input">
+                        <input type="text" id="promocode" name="promocode" placeholder="Promo code">
+                        <a href="https://2025oss03.vercel.app/form_style.html">Redeem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>

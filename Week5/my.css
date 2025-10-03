@@ -1,0 +1,116 @@
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.main-container-1{
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 80%;
+    text-align: right;
+    margin: 0 auto;
+}
+.main-container-2{
+    background-color: aquamarine;
+    padding: 20px 30px;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 50%;
+    text-align: left;
+    margin: 0 auto;
+
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a.button{
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.button-area {
+    display: inline-block;
+    margin-bottom: 15px;
+    height: auto;
+    padding: 8px 15px;
+    border-radius: 7px;
+    background-color: #0d6efd;
+    width: auto;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+table {
+    width: 90%;
+    margin: 0 auto;
+}
+.sugang-table{
+    text-align: center;
+    border-collapse: collapse;
+}
+.sugang-table td{
+    border-bottom: 1px solid #dee2e6;
+}
+.form-group {
+    margin-bottom: 20px; /* 각 입력 항목 사이의 세로 간격 */
+    text-align: left;    /* 라벨과 입력창을 왼쪽 정렬 */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+button[type=submit]{
+    margin-bottom: 15px;
+    height: auto;
+    padding: 8px 15px;
+    border-radius: 7px;
+    border: #0d6efd;
+    background-color: #0d6efd;
+    width: auto;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+button[type=button]{
+    margin-bottom: 15px;
+    height: auto;
+    padding: 8px 15px;
+    border-radius: 7px;
+    border: #0d6efd;
+    background-color: #0d6efd;
+    width: auto;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    body{
+        padding: 10px;
+    }
+
+    header h1{
+        font-size: 28px;
+    }
+
+    .main-container-1, .main-container-2{
+        width: 100%;
+        min-width: auto;
+        padding: 15px;
+    }
+
+    .sugang-table th:nth-child(5), .sugang-table td:nth-child(5){
+        display: none;
+    }
+
+    .form-group label, .form-group input, .button, button{
+        font-size: 16px;
+    }
+}
