@@ -6,14 +6,13 @@
     <title>Sugang.com</title>
     <link rel="stylesheet" href="my.css">
 </head>
-
 <body>
     <header>
         <h1>과목 편집</h1>
     </header>
 
     <div class="main-container-2">
-        <form name="editForm" onsubmit="return validateForm()">
+        <form name="editForm" onsubmit="return handleEditSubmit()">
             <div class="form-group">
                 <label for="sugangTitle">수강한 과목 이름</label>
                 <input type="text" id="input_sugangTitle" name="sugangTitle" value="OS Studio">
@@ -30,18 +29,26 @@
                 <label for="date">수강 날짜</label>
                 <input type="text" id="input_date" name="date" value="2025-09-01">
             </div>
-
-            <div class="button-group">
-                <button type="submit" class="button" onclick="confirmEdit()">[확인]</button>
-                <div class="button-area">
-                    <a href="index.html" class="button">[취소]</a>
-                </div>
+            <div class="form-group">
+                <label for="rating">평점</label>
+                <input type="number" id="input_rating" name="rating" value="4.0">
+            </div>
+            <div class="form-group">
+                <label for="classify">이수구분</label>
+                <select type="file" id="input_classify" name="classify" style="width: 170px; height: 30px" value="전공">
+                    <option>전공</option>
+                    <option>교양</option>
+                </select>
+            </div>  
+            <button type="submit" class="button">[확인]</button>
+            <div class="button-area">
+                <a href="index.html" class="button">[취소]</a>
             </div>
         </form>
     </div>
 </body>
 <script>
-    function validateForm() {
+    function handleEditSubmit() {
         title = document.getElementById("input_sugangTitle").value;
         if (title == "") {
             alert("과목명을 입력하세요.");
@@ -62,8 +69,6 @@
             alert("오늘의 날짜를 입력하세요.");
             return false;
         }
-    }
-    function confirmEdit(){
         if (confirm("수강 과목을 수정할까요?")){
             alert("수정되었습니다.");
             window.location.href="index.html";

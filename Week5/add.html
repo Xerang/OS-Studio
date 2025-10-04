@@ -28,6 +28,18 @@
                 <label for="date">수강 날짜</label>
                 <input type="text" id="input_date" name="date" placeholder="20XX-XX-XX">
             </div>
+            <div class="form-group">
+                <label for="rating">평점</label> <!--필수 선택 아님-->
+                <input type="number" id="input_rating" name="rating">
+            </div>
+            <div class="form-group">
+                <label for="classify">이수구분</label>
+                <select type="file" id="input_classify" name="classify" style="width: 170px; height: 30px">
+                    <option selected>Choose...</option>
+                    <option>전공</option>
+                    <option>교양</option>
+                </select>
+            </div>
             <div style="text-align: left;">
                 <button type="submit">확인</button>
                 <div class="button-area">
@@ -58,7 +70,13 @@
                 alert("오늘의 날짜를 입력하세요.");
                 return false;
             }
+            classification = document.getElementById("input_classify").value;
+            if (classification == "Choose...") {
+                alert("이수구분은 필수입니다.");
+                return false;
+            }
             alert("게시물이 추가됩니다.");
+            window.location.href="index.html";
             return false;
         }
     </script>
