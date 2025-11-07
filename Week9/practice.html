@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits = ["apple", "mango", "banana", "grape"];
+        //alert(fruits[0]);
+
+        let fruits2 = [];
+        fruits2[0] = "orange";
+        fruits2[2] = "peach";
+        /*
+        alert(fruits2[0]); // orange
+        alert(fruits2[1]); // undefined
+        alert(fruits2[2]); // peach (앞에 1번이 undefined되었어도 JS에서는 신경쓰지 않는다.)
+        */
+        for(let i=0;i<fruits2.length;i++){
+            console.log(fruits2[i]);
+        }
+        /*
+        for(let each of fruits2){
+            console.log(each);
+        }
+        */
+        //fruits2[fruits2.length]="lemon";
+        customPush(fruits2, "kiwi");
+
+        fruits2.forEach(function(each){
+            console.log(each);
+        });
+
+        // push라는 메서드를 쓰지 않고 동일한 기능을 구현해라.
+        // 함수로 만들거나, 직접 구현 가능
+        function customPush(prm_array, prm_value){
+            prm_array[prm_array.length] = prm_value;
+        }
+
+
+        // Destructuring
+        /*
+        let [fruit3, fruit4] = fruits;
+        alert(fruit3 + "//" + fruit4);
+        let [fruit5,,,fruit6] = fruits;
+        alert(fruit5 + "//" + fruit6);
+        */
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50
+        };
+        // Destructuring
+        //let {lastName, firstName} = person;
+        // Default value
+        //let {firstName, lastName, country = "US"} = person;
+        // Property alias
+        //let {lastName : name} = person;
+
+        /*
+        let stringPerson = JSON.stringify(person);
+        console.log(person); //객체 형태
+        console.log(stringPerson); //문자열로 보여지는 형태
+        let clonePerson = JSON.parse(stringPerson);
+        console.log(clonePerson); //문자에서 다시 객체 형태로
+        */
+        
+        //exeTest();
+        /*let exeTest = function(){
+            alert(11);
+        }
+        exeTest();
+        */
+        let exeTest = () =>{
+            alert(11);
+        }
+        exeTest();
+
+        //window.open("https://daum.net");
+
+        console.log("href : " + location.href);
+        console.log("hostname : " + location.hostname);
+        console.log("protocol : " + location.protocol);
+        console.log("pathname : " + location.pathname);
+
+    </script>
+</body>
+</html>
